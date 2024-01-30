@@ -19,6 +19,7 @@
 		78840BFD2B67FC3F00453B74 /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78840BFC2B67FC3F00453B74 /* ExploreController.swift */; };
 		78840BFF2B67FC8C00453B74 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78840BFE2B67FC8C00453B74 /* NotificationsController.swift */; };
 		78840C012B67FCAC00453B74 /* ConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78840C002B67FCAC00453B74 /* ConversationController.swift */; };
+		78DBBCA22B693CB500042605 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBBCA12B693CB500042605 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		78840BFC2B67FC3F00453B74 /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		78840BFE2B67FC8C00453B74 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		78840C002B67FCAC00453B74 /* ConversationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationController.swift; sourceTree = "<group>"; };
+		78DBBCA12B693CB500042605 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				78421AAA2B6836DA0051294D /* Extensions.swift */,
+				78DBBCA12B693CB500042605 /* Utilities.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			files = (
 				78840BDF2B67F96C00453B74 /* AppDelegate.swift in Sources */,
 				78840BFD2B67FC3F00453B74 /* ExploreController.swift in Sources */,
+				78DBBCA22B693CB500042605 /* Utilities.swift in Sources */,
 				78840BFF2B67FC8C00453B74 /* NotificationsController.swift in Sources */,
 				78421AAB2B6836DA0051294D /* Extensions.swift in Sources */,
 				78421AAE2B683CD80051294D /* LoginController.swift in Sources */,
@@ -369,7 +373,6 @@
 				INFOPLIST_FILE = TwitterClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -397,7 +400,6 @@
 				INFOPLIST_FILE = TwitterClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
