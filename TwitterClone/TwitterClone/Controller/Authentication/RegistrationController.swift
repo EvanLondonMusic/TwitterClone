@@ -41,7 +41,7 @@ class RegistrationController: UIViewController {
     }()
     
     private lazy var userNameContainerView: UIView = {
-        let image = #imageLiteral(resourceName: "ic_lock_outline_white_2x")
+        let image = #imageLiteral(resourceName: "ic_person_outline_white_2x")
         let view = Utilities().inputContainerView(withImage: image, textField: userNameTextField)
         view.backgroundColor = .twitterBlue
         return view
@@ -75,6 +75,18 @@ class RegistrationController: UIViewController {
         return button
     }()
     
+    private let registerButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Sign Up", for: .normal)
+        button.setTitleColor(.twitterBlue, for: .normal)
+        button.backgroundColor = .white
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.layer.cornerRadius = 5
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.addTarget(self, action: #selector(handleRegistration), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: - Lifcycle
     
     override func viewDidLoad() {
@@ -95,6 +107,10 @@ class RegistrationController: UIViewController {
         self.dismiss(animated: true) // 2. pagesheet dismiss
     }
     
+    @objc func handleRegistration() {
+
+    }
+    
     // MARK: - Halpers
     
     func configureUI() {
@@ -102,15 +118,16 @@ class RegistrationController: UIViewController {
         
         view.addSubview(plusPhotoButton)
         plusPhotoButton.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
-        plusPhotoButton.setDimensions(width: 100, height: 100)
+        plusPhotoButton.setDimensions(width: 128, height: 128)
         
-        let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView, fullNameContainerView, userNameContainerView])
+        let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView, fullNameContainerView, userNameContainerView, registerButton ])
         stack.axis = .vertical
         stack.spacing = 20
+        stack.distribution = .fillEqually
         stack.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(stack)
-        stack.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingLeft: 36, paddingRight: 36)
+        stack.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 36, paddingRight: 36)
         
         
         view.addSubview(alreadyHaveAccountButton)
