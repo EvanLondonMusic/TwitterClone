@@ -11,6 +11,8 @@ class RegistrationController: UIViewController {
     
     // MARK: - Properties
     
+    private let imagePicker = UIImagePickerController()
+    
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
@@ -97,7 +99,7 @@ class RegistrationController: UIViewController {
     // MARK: - Selector
     
     @objc func handleAddProfilePhoto() {
-        print("Add photo")
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @objc func handleShowLogin() {
@@ -116,8 +118,11 @@ class RegistrationController: UIViewController {
     func configureUI() {
         view.backgroundColor = .twitterBlue
         
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
         view.addSubview(plusPhotoButton)
-        plusPhotoButton.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
+        plusPhotoButton.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 30)
         plusPhotoButton.setDimensions(width: 128, height: 128)
         
         let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView, fullNameContainerView, userNameContainerView, registerButton ])
@@ -132,5 +137,24 @@ class RegistrationController: UIViewController {
         
         view.addSubview(alreadyHaveAccountButton)
         alreadyHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 39, paddingBottom: 16, paddingRight: 39)
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+
+extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let profileImage = info[.editedImage] as? UIImage else { return }
+        
+        plusPhotoButton.layer.cornerRadius = 128 / 2
+        plusPhotoButton.layer.masksToBounds = true
+        plusPhotoButton.layer.borderColor = UIColor.white.cgColor
+        plusPhotoButton.layer.borderWidth = 1.5
+        plusPhotoButton.imageView?.contentMode = .scaleAspectFill
+        plusPhotoButton.imageView?.clipsToBounds = true
+        self.plusPhotoButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        
+        dismiss(animated: true, completion: nil)
     }
 }
