@@ -43,6 +43,24 @@ class LoginController: UIViewController {
         return tf
     }()
     
+    private let loginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Log in", for: .normal)
+        button.setTitleColor(.twitterBlue, for: .normal)
+        button.backgroundColor = .white
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.layer.cornerRadius = 5
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        return button
+    }()
+    
+    private let dontHaveAccountButton: UIButton = {
+        let button = Utilities().attributedButton("Don't have an account?", " Sign Up.")
+        button.addTarget(self, action: #selector(handleShowSignUP), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: - Lifcycle
     
     override func viewDidLoad() {
@@ -51,6 +69,16 @@ class LoginController: UIViewController {
     }
     
     // MARK: - Selector
+    @objc func handleShowSignUP() {
+        let controller = RegistrationController()
+        //        navigationController?.pushViewController(controller, animated: true) // 1. fullscreen popup open
+        controller.modalPresentationStyle = .pageSheet
+        self.present(controller, animated: true) // 2. pageSheet open
+    }
+    
+    @objc func handleLogin() {
+        print("Patrick")
+    }
     
     // MARK: - Halpers
     
@@ -63,12 +91,15 @@ class LoginController: UIViewController {
         logoImageView.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
         logoImageView.setDimensions(width: 100, height: 100)
         
-        let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView])
+        let stack = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView, loginButton])
         stack.axis = .vertical
-        stack.spacing = 8
+        stack.spacing = 20
         stack.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(stack)
-        stack.anchor(top: logoImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingLeft: 30, paddingRight: 30)
+        stack.anchor(top: logoImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingLeft: 36, paddingRight: 36)
+        
+        view.addSubview(dontHaveAccountButton)
+        dontHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 39, paddingBottom: 16, paddingRight: 39)
     }
 }
