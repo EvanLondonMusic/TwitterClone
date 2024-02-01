@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationController: UIViewController {
     
     // MARK: - Properties
     
     private let imagePicker = UIImagePickerController()
+    private var profileImage: UIImage?
     
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -67,7 +69,6 @@ class RegistrationController: UIViewController {
     
     private let userNameTextField: UITextField = {
         let tf = Utilities().textField(withPlaceholder: "Username")
-        tf.isSecureTextEntry = true
         return tf
     }()
     
@@ -94,6 +95,7 @@ class RegistrationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        hideKeyboard()
         
     }
     // MARK: - Selector
@@ -104,13 +106,34 @@ class RegistrationController: UIViewController {
     
     @objc func handleShowLogin() {
         
-//        navigationController?.popViewController(animated: true) // 1. popViewController dismiss
-
+//                navigationController?.popViewController(animated: true) // 1. popViewController dismiss
+        
         self.dismiss(animated: true) // 2. pagesheet dismiss
     }
     
     @objc func handleRegistration() {
-
+        guard let profileImage = profileImage else {
+            print("DEBUG: Please select a profile image..")
+            return
+        }
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let fullname = fullNameTextField.text else { return }
+        guard let username = userNameTextField.text else { return }
+        
+        let credentials = AuthCredentials(email: email, password: password, fullname: fullname, username: username, profileImage: profileImage)
+        
+        AuthService.shared.registerUser(credentials: credentials) { (error, ref) in
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow}) else { return }
+            guard let tab = window.rootViewController as? MainTabController else { return }
+            
+            tab.authentificateUserAndConfigureUI()
+            
+            
+            self.dismiss(animated: true, completion: nil)
+            tab.dismiss(animated: true, completion: nil)
+            
+        }
     }
     
     // MARK: - Halpers
@@ -146,6 +169,7 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImage = info[.editedImage] as? UIImage else { return }
+        self.profileImage = profileImage
         
         plusPhotoButton.layer.cornerRadius = 128 / 2
         plusPhotoButton.layer.masksToBounds = true
@@ -156,5 +180,13 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         self.plusPhotoButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
         
         dismiss(animated: true, completion: nil)
+    }
+    func hideKeyboard() {
+        let hide: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapHideKeyboard))
+        view.addGestureRecognizer(hide)
+    }
+    
+    @objc func tapHideKeyboard() {
+        view.endEditing(true)
     }
 }
