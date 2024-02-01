@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
+import FirebaseCore
 
 class LoginController: UIViewController {
     
@@ -71,13 +74,38 @@ class LoginController: UIViewController {
     // MARK: - Selector
     @objc func handleShowSignUP() {
         let controller = RegistrationController()
-        //        navigationController?.pushViewController(controller, animated: true) // 1. fullscreen popup open
+                /*navigationController?.pushViewController(controller, animated: true)*/ // 1. fullscreen popup open
         controller.modalPresentationStyle = .pageSheet
         self.present(controller, animated: true) // 2. pageSheet open
     }
     
     @objc func handleLogin() {
-        print("Patrick")
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+          guard let strongSelf = self else { return }
+            if let error = error {
+                print("Patrick \(error.localizedDescription)")
+                return
+            }
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow}) else { return }
+            guard let tab = window.rootViewController as? MainTabController else { return }
+            
+            tab.authentificateUserAndConfigureUI()
+            
+            self?.dismiss(animated: true, completion: nil)
+        }
+        
+//        AuthService.shared.logUserIn(withEmail: email, password: password) { (result, error) in
+//        Auth.auth().signIn(withEmail: email, password: password) { [weak .self] authRes
+//            if let error = error {
+//                print("DEBUG: Error loggin in \(error.localizedDesctription)")
+//                return
+//            }
+//            
+//            print("DEBIG: Successful log in..")
+//        }
     }
     
     // MARK: - Halpers
