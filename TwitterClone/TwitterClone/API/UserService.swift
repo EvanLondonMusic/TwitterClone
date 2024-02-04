@@ -10,8 +10,7 @@ import Firebase
 struct UserService {
     static let shared = UserService()
     
-    func fetchUser(completion: @escaping(User) -> Void) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+    func fetchUser(uid: String, completion: @escaping(User) -> Void) {
         
         
         

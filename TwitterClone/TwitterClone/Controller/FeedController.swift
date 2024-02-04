@@ -76,8 +76,8 @@ extension FeedController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TweetCell
         
         
-//        print("DEBUG: Index path is \(indexPath.row)")
-//        cell.tweet = tweets[indexPath.row]
+        
+        cell.tweet = tweets[indexPath.row]
         
         return cell
     }

@@ -11,9 +11,9 @@ class TweetCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-//    var tweet: Tweet? {
-//        didSet { configure() }
-//    }
+    var tweet: Tweet? {
+        didSet { configure() }
+    }
     
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
@@ -130,6 +130,13 @@ class TweetCell: UICollectionViewCell {
     // MARK: - Helpers
     
     func configure() {
-        print("DEBUG: Did set tweet in cell..")
+        guard let tweet = tweet else { return }
+        let viewModel = TweetViewModel(tweet: tweet)
+        
+        captionLabel.text = tweet.caption
+        
+        profileImageView.sd_setImage(with: viewModel.profileImageUrl)
+        infloLabel.attributedText = viewModel.userInfoText
     }
 }
+

@@ -59,6 +59,7 @@
 		78DBBCA22B693CB500042605 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBBCA12B693CB500042605 /* Utilities.swift */; };
 		78E4E1252B6F993000882D3B /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E4E1242B6F993000882D3B /* Tweet.swift */; };
 		78E4E1272B6FA71F00882D3B /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E4E1262B6FA71F00882D3B /* TweetCell.swift */; };
+		78E4E1292B6FE13B00882D3B /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E4E1282B6FE13B00882D3B /* TweetViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		78DBBCA12B693CB500042605 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		78E4E1242B6F993000882D3B /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		78E4E1262B6FA71F00882D3B /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		78E4E1282B6FE13B00882D3B /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 		78840BF42B67F9FB00453B74 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				78E4E1282B6FE13B00882D3B /* TweetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				78840BE12B67F96C00453B74 /* SceneDelegate.swift in Sources */,
 				78840BF92B67FABA00453B74 /* MainTabController.swift in Sources */,
 				78840C012B67FCAC00453B74 /* ConversationController.swift in Sources */,
+				78E4E1292B6FE13B00882D3B /* TweetViewModel.swift in Sources */,
 				78421AB02B683D590051294D /* RegistrationController.swift in Sources */,
 				78840BFB2B67FC0500453B74 /* FeedController.swift in Sources */,
 				7833A2BC2B6BB9D200D6D79C /* Constants.swift in Sources */,
