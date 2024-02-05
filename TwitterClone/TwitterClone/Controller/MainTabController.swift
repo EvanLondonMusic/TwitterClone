@@ -7,9 +7,6 @@
 
 import UIKit
 import Firebase
-import FirebaseCore
-import FirebaseStorage
-import FirebaseAuth
 
 class MainTabController: UITabBarController {
     
@@ -37,7 +34,7 @@ class MainTabController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        logUserOut()
+        logUserOut()
         authentificateUserAndConfigureUI()
 //        configureViewControllers()
 //        configureUI()
