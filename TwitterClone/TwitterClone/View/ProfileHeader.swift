@@ -66,6 +66,7 @@ class ProfileHeader: UICollectionReusableView {
     private let fullnameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = .black
         return label
     }()
     
@@ -81,6 +82,7 @@ class ProfileHeader: UICollectionReusableView {
         label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 3
         label.text = "Star"
+        label.textColor = .black
         return label
     }()
         
@@ -104,6 +106,7 @@ class ProfileHeader: UICollectionReusableView {
         let followTap = UITapGestureRecognizer(target: self, action: #selector(handleFollowersTapped))
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(followTap)
+        label.textColor = .black
         return label
     }()
     private let followersLabel: UILabel = {
@@ -112,6 +115,7 @@ class ProfileHeader: UICollectionReusableView {
         let followTap = UITapGestureRecognizer(target: self, action: #selector(handleFollowingTapped))
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(followTap)
+        label.textColor = .black
         return label
     }()
     
