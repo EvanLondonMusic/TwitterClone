@@ -58,6 +58,7 @@
 		78840BFD2B67FC3F00453B74 /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78840BFC2B67FC3F00453B74 /* ExploreController.swift */; };
 		78840BFF2B67FC8C00453B74 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78840BFE2B67FC8C00453B74 /* NotificationsController.swift */; };
 		78840C012B67FCAC00453B74 /* ConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78840C002B67FCAC00453B74 /* ConversationController.swift */; };
+		7887FF0B2B73E371005B012D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7887FF0A2B73E371005B012D /* UserCell.swift */; };
 		7897142D2B71389F009DA0E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7897142C2B71389F009DA0E5 /* GoogleService-Info.plist */; };
 		7897142F2B7167B9009DA0E5 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7897142E2B7167B9009DA0E5 /* ProfileHeader.swift */; };
 		78AC8BDD2B70F5F30066FD3C /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AC8BDC2B70F5F30066FD3C /* ProfileController.swift */; };
@@ -92,6 +93,7 @@
 		78840BFC2B67FC3F00453B74 /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		78840BFE2B67FC8C00453B74 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		78840C002B67FCAC00453B74 /* ConversationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationController.swift; sourceTree = "<group>"; };
+		7887FF0A2B73E371005B012D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		7897142C2B71389F009DA0E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7897142E2B7167B9009DA0E5 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		78AC8BDC2B70F5F30066FD3C /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				7897142E2B7167B9009DA0E5 /* ProfileHeader.swift */,
 				784AC5C42B72484400A88869 /* ProfileFilterView.swift */,
 				784AC5C62B724AAB00A88869 /* ProfileFilterCell.swift */,
+				7887FF0A2B73E371005B012D /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				78840BFD2B67FC3F00453B74 /* ExploreController.swift in Sources */,
 				784AC5C72B724AAB00A88869 /* ProfileFilterCell.swift in Sources */,
 				78477DFC2B6E4EF000429DA2 /* CaptionTextView.swift in Sources */,
+				7887FF0B2B73E371005B012D /* UserCell.swift in Sources */,
 				78DBBCA22B693CB500042605 /* Utilities.swift in Sources */,
 				78840BFF2B67FC8C00453B74 /* NotificationsController.swift in Sources */,
 				78421AAB2B6836DA0051294D /* Extensions.swift in Sources */,

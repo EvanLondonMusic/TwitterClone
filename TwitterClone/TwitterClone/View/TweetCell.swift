@@ -40,6 +40,7 @@ class TweetCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 0
         label.text = "Some test caption"
+        label.textColor = .black
         return label
     }()
     
@@ -100,6 +101,7 @@ class TweetCell: UICollectionViewCell {
         
         infoLabel.font = UIFont.systemFont(ofSize: 14)
         infoLabel.text = "Eddie brock @venom"
+        infoLabel.textColor = .black
         
         let actionStack = UIStackView(arrangedSubviews: [commentButton,retweetButton,likeButton,shareButton])
         actionStack.axis = .horizontal
