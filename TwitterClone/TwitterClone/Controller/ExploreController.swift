@@ -43,6 +43,7 @@ class ExploreController: UITableViewController {
         navigationController?.navigationBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
         UISearchBar.appearance().tintColor = .black
+        
     }
     
     // MARK: - API
@@ -75,9 +76,12 @@ class ExploreController: UITableViewController {
         searchController.searchBar.searchTextField.leftView?.tintColor = .darkGray
 //        searchController.searchBar.searchTextField.tokenBackgroundColor = .red
         searchController.searchBar.searchTextField.textColor = .black
-//        searchController.searchBar.searchTextField.tintColor = .black
+        searchController.searchBar.searchTextField.tintColor = .black
+//        searchController.searchBar.setImage(UIImage(named: "xmark.circle.fill")?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .clear, state: .normal)
 //        searchController.searchBar.searchTextField.backgroundColor = .orange
         searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Search for a user", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([.foregroundColor : UIColor.black], for: .normal)
+        searchController.searchBar.setImage(UIImage(systemName: "xmark.circle"), for: .clear, state: .normal)
     }
 }
 
